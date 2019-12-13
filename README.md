@@ -6,7 +6,7 @@
 1. Set your Boom number range
 2. Guess number
 3. Decrease number range and guess again
-<br>
+
 
 ## CrawlBug_GameSale.py
  This is a crawl bug function.<br>
@@ -31,12 +31,18 @@
 * Station="松山"      ex.臺北 臺中("臺"要繁體字)
 * direction="往北"    ex.south or north 往北or往南 
  
+### 2019.12.13
+ * 指定車站、方向，依現在時間列出後面的班次列車
+ * 顯示 班車編號、到站時間、終點站、延誤時間
+ 
  未來想加入功能
  ** 顯示更晚時間的delay time ，may be version II
- 
+ ** 新增輸入user目的地，篩選可搭的車輛
 
 ## CrawlBug_TrainDelay II.py
  This is a crawl bug function.<br>
  Crawling for delay time for taiwan's train<br>
  This is different of original version on that can show more detail currect delay time 
  web="http://train.ptx.fly.idv.tw/"
+
+
