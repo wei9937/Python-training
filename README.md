@@ -12,11 +12,10 @@
 ### This is a crawl bug function.
 ### Crawling for Second-hand price of the TV game on PTT GameSale page
 ###
-### Define
-#### 
-#### PLACE="台北"   //設定想搜尋地區
-#### SearchName="織夢島"  //設定想搜尋的遊戲
-#### Date="2"    //想搜尋幾天內的文
+ *Define
+ PLACE="台北"   //設定想搜尋地區
+ SearchName="織夢島"  //設定想搜尋的遊戲
+ Date="2"    //想搜尋幾天內的文
 
 
 
