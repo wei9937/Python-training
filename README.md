@@ -18,8 +18,8 @@
   * Date="2"    //想搜尋幾天內的文 - (未完成)<br>
 
 未來想加入功能
-** 搜尋幾天內的文<br>
-** 濾掉同PO文者的文- 比對ID及標題<br>
+* 搜尋幾天內的文<br>
+* 濾掉同PO文者的文- 比對ID及標題<br>
 
 
 ## CrawlBug_TrainDelay.py
@@ -37,8 +37,8 @@
  * 顯示 班車編號、到站時間、終點站、延誤時間
  
  未來想加入功能
- ** 顯示更晚時間的delay time ，may be version II
- ** 新增輸入user目的地，篩選可搭的車輛
+ * 顯示更晚時間的delay time ，may be version II
+ * 新增輸入user目的地，篩選可搭的車輛
 
 ## CrawlBug_TrainDelay II.py
  This is a crawl bug function.<br>
