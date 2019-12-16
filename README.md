@@ -11,7 +11,7 @@
 ## CrawlBug_GameSale.py
  This is a crawl bug function.<br>
  Crawling Second-hand price of the TV game on PTT GameSale page<br>
-
+ web="https://www.ptt.cc/bbs/Gamesale/<br>"
 操作說明 - 在Define中設定<br>
   * PLACE="台北"   //設定想搜尋地區<br>
   * SearchName="織夢島"  //設定想搜尋的遊戲<br>
@@ -52,7 +52,7 @@
 
 ## CrawlBug_TrainDelay II.py
  This is a crawl bug function.<br>
- Crawling for delay time for taiwan's train<br>
+ Crawling delay time for taiwan's train<br>
  This is different of original version on that can show more detail currect delay time 
  web="http://train.ptx.fly.idv.tw/"
 
