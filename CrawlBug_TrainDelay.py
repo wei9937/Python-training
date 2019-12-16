@@ -14,8 +14,8 @@ import pandas as pd
 print("Train Delay Time!")
 
 ####    Define info     #####
-Station="松山"  #臺北 臺中
-direction="往北"    #south or north 往北or往南
+Station="松山"      #臺北 臺中
+direction="往北"    # south or north 往北or往南
 
 
 ###########################
