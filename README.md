@@ -12,10 +12,20 @@
  This is a crawl bug function.<br>
  Crawling Second-hand price of the TV game on PTT GameSale page<br>
 
-操作說明<br>
-   * PLACE="台北"   //設定想搜尋地區<br>
+操作說明 - 在Define中設定<br>
+  * PLACE="台北"   //設定想搜尋地區<br>
   * SearchName="織夢島"  //設定想搜尋的遊戲<br>
-  * Days="2"    //想搜尋幾天內的文 - (未完成)<br>
+  * Days="2"    //搜尋幾天內的文，default Days =0
+  * Page=0      //搜尋幾頁內的文，default page =0
+  
+### 2019.12.16
+ * Add:search Articles in a few Days
+ * Add:Output results in Execl (.csv)
+
+### 2019.12.13
+ * Add:能設定位置、頁面數、遊戲名來搜尋資料
+ * Add:最終列出 Name, Price, Place, Url 表格
+ 
 
 未來想加入功能
 * 搜尋幾天內的文<br>
