@@ -28,7 +28,7 @@
  
 
 未來想加入功能
-* (完成)~~搜尋幾天內的文
+* (完成)~~搜尋幾天內的文~~
 * 濾掉同PO文者的文- 比對ID及標題<br>
 
 
@@ -53,7 +53,7 @@
 ## CrawlBug_TrainDelay II.py
  This is a crawl bug function.<br>
  Crawling delay time for taiwan's train<br>
- This is different of original version on that can show more detail currect delay time 
+ This is different of original version on that can show more detail currect delay time <br>
  web="http://train.ptx.fly.idv.tw/"
 
 
