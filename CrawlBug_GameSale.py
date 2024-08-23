@@ -13,12 +13,16 @@ import datetime
 
 #---------------      Define       -------------------#
 Price=""
-PLACE="台北"
-SearchName="寶可夢"
+PLACE=""
+SearchName="NS"     # 必填
 Url=""
-Days="1"            # 搜尋幾天內的文，default Days =0
+Days="2"            # 搜尋幾天內的文，default Days =0
 Page=0              # 搜尋幾頁內的文，default page =0
 #-----------------------------------------------------#
+
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+}
 
 s = requests.session() #取得Request Session
 #通過檢查是否超過18歲的頁面
@@ -48,7 +52,7 @@ while a != -1:
         print("Please setting the searched config !")
         break
     else:
-        print("Setting comfirm : Page="+str(Page)+", Days="+str(Days))            
+        print("Setting comfirmed : Page="+str(Page)+", Days="+str(Days))            
         
     web="https://www.ptt.cc/bbs/Gamesale/search?page="+str(a)+"&q="+str(search)
     res = s.get(web) #取得HTML頁面
@@ -56,7 +60,7 @@ while a != -1:
 
     soup = BeautifulSoup(res.text, 'html.parser') #將抓回的HTML頁面傳入BeautifulSoup，使用html.parser解析
     div_tags = soup.find_all('div', {'class': 'title'}) #找到網頁中全部的 <div class="title">
-    #print(soup)
+    # print(soup)
     #day_tags = soup.find_all('div',{'class':'date'})
    
     #print(today)
@@ -74,8 +78,12 @@ while a != -1:
 
             page_date=soup.find('div','date').string
             print("ldate="+str(ldate)+", page_date="+str(page_date))
-            
-            if page_date <= ldate:
+
+            page_date = datetime.datetime.strptime(page_date.strip(), "%m/%d")
+            ldate_obj = datetime.datetime.strptime(ldate, "%m/%d")
+            print("ldate="+str(ldate_obj)+", page_date="+str(page_date))
+
+            if page_date <= ldate_obj:
                 print("Break")
                 a=-1
                 break;
@@ -84,8 +92,9 @@ while a != -1:
         a_tag = div_tag.find('a') #找到 <div class="title"> 下的 <a>
 
         split = re.split(r'[;,\"]\s*',str(a_tag))
-        link="https://www.ptt.cc"+split[1]
-
+        if len(split) > 1:
+            link="https://www.ptt.cc"+split[1]
+        
         res2 = s.get(link)
         soup2 = BeautifulSoup(res2.text, 'lxml') #將抓回的HTML頁面傳入BeautifulSoup，使用html.parser解析
         #print(res2.text)
@@ -101,8 +110,17 @@ while a != -1:
             price=price[0].replace(' ',"")
             price=price.replace('\n'," ")
         else:
-            price="沒有售價"
+            target_text=u'【徵 求 價】'
+            content = info_tags.split(target_text)
+            if len(content)>1:
+                price=content[1].split('★')
+                print("price[0] = "+price[0])
+                price=price[0].replace(' ',"")
+                price=price.replace('\n'," ")
+            else:
+                price="沒有標註價格"
 
+        # print(price)
         target_text=u'【地    區】：'
         content = info_tags.split(target_text)
         #print(len(content))
