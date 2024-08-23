@@ -11,7 +11,7 @@
 ## CrawlBug_GameSale.py
  This is a crawl bug function.<br>
  Crawling Second-hand price of the TV game on PTT GameSale page<br>
- web="https://www.ptt.cc/bbs/Gamesale/<br>"
+ web=https://www.ptt.cc/bbs/Gamesale/<br>
 
 First-time use should be
 * install python
