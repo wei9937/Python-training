@@ -12,6 +12,12 @@
  This is a crawl bug function.<br>
  Crawling Second-hand price of the TV game on PTT GameSale page<br>
  web="https://www.ptt.cc/bbs/Gamesale/<br>"
+
+First-time use should be
+* install python
+* pip install xlwt
+* pip install prettytable
+ 
 操作說明 - 在Define中設定<br>
   * PLACE="台北"   //設定想搜尋地區<br>
   * SearchName="織夢島"  //設定想搜尋的遊戲<br>
