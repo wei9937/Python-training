@@ -17,6 +17,7 @@ First-time use should be
 * install python
 * pip install xlwt
 * pip install prettytable
+* pip install lxml
  
 操作說明 - 在Define中設定<br>
   * PLACE="台北"   //設定想搜尋地區<br>
