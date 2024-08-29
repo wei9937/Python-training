@@ -16,7 +16,7 @@ Price=""
 PLACE=""
 SearchName="NS"     # 必填
 Url=""
-Days="2"            # 搜尋幾天內的文，default Days =0
+Days="1"            # 搜尋幾天內的文，default Days =0
 Page=0              # 搜尋幾頁內的文，default page =0
 #-----------------------------------------------------#
 
@@ -44,7 +44,7 @@ else :
 print("Today = "+str(today.month)+"/"+day)
 
 a=1     #當前頁面
-table = PrettyTable(["Name", "Price","Place", "Url"])
+table = PrettyTable(["Name", "Price", "How to Trade", "Place", "Url"])
 
 
 while a != -1: 
@@ -110,7 +110,7 @@ while a != -1:
             price=price[0].replace(' ',"")
             price=price.replace('\n'," ")
         else:
-            target_text=u'【徵 求 價】'
+            target_text=u'【徵 求 價】：'
             content = info_tags.split(target_text)
             if len(content)>1:
                 price=content[1].split('★')
@@ -121,6 +121,14 @@ while a != -1:
                 price="沒有標註價格"
 
         # print(price)
+        target_text=u'【交易方式】：'
+        content = info_tags.split(target_text)
+        if len(content)>1:
+            trade=content[1].split('\n')
+            print("(Aron) trade:[0]", trade[0])
+        else:
+            trade="無"
+            
         target_text=u'【地    區】：'
         content = info_tags.split(target_text)
         #print(len(content))
@@ -135,7 +143,7 @@ while a != -1:
             #print(a_tag.text) #印出文字部分
             #print(a_tag.text+"\t 價格:"+link) #印出文字部分
             if place[0].find(PLACE)!=-1: #搜尋地區
-                table.add_row([a_tag.text, price, place[0], link])
+                table.add_row([a_tag.text, price, trade[0], place[0], link])
                 #myWriter.writerow([a_tag.text, price, place[0], link])
 
 
@@ -146,20 +154,22 @@ while a != -1:
         a=a+1
 
 #將table資料載入至 Excel
-with open(r'gamesale.csv','w',newline='') as myFile:
+with open(r'gamesale.csv','w',newline='', encoding='cp950', errors='ignore') as myFile:
  myWriter = csv.writer(myFile)
- myWriter.writerow(["Name", "Price","Place", "Url"])
+ myWriter.writerow(["Name", "Price", "How to Trade", "Place", "Url"])
  for row in table:
     row.border = False
     row.header = False
     row.align = "c"
     row.valign = "m"
 
-    name = row.get_string(fields=["Name"])
-    price = row.get_string(fields=["Price"])
-    place = row.get_string(fields=["Place"])
-    url = row.get_string(fields=["Url"])
-    mylist = [name,price,place,url]
+    name = row.get_string(fields=["Name"]).strip()
+    price = row.get_string(fields=["Price"]).strip()
+    trade = row.get_string(fields=["How to Trade"]).strip()
+    place = row.get_string(fields=["Place"]).strip()
+    url = row.get_string(fields=["Url"]).strip()
+    hyperlink = f'=HYPERLINK("{url}", "{url}")'
+    mylist = [name,price,trade,place,hyperlink]
     myWriter.writerow(mylist)
     
  myFile.close()
