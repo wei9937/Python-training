@@ -33,10 +33,17 @@ First-time use should be
  * Add:能設定位置、頁面數、遊戲名來搜尋資料
  * Add:最終列出 Name, Price, Place, Url 表格
  
-
+### 2024.08.23
+ * 修正判斷日期上的錯誤，這會導致撈取資料都是空的 
+ * 增加撈取 "徵求" 項目的價格，但徵求類型的格式稍有不同，部分顯示時會有錯亂
+   
 未來想加入功能
 * (完成)~~搜尋幾天內的文~~
-* 濾掉同PO文者的文- 比對ID及標題<br>
+* 濾掉同PO文者的文- 比對ID及標題
+* 顯示徵求價，設定區可以選擇是要找 "售" or "徵" or all
+* 將設定檔獨立出來， GameSaleSetting.ini
+* 增加 GUI 介面
+<br>
 
 
 ## CrawlBug_TrainDelay.py
